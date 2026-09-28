@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Konark Barve — BBA AI & Analytics student, entrepreneur and project builder in Goa." />
+  <title>Konark Barve | Portfolio</title>
+  <style>
+    :root {
+      --bg: #070707;
+      --panel: rgba(255,255,255,.045);
+      --panel-solid: #111111;
+      --text: #f7f7f7;
+      --muted: #a6a6a6;
+      --line: rgba(255,255,255,.11);
+      --line-strong: rgba(255,255,255,.20);
+      --glass-highlight: rgba(255,255,255,.075);
+      --shadow: 0 24px 70px rgba(0,0,0,.38);
+      --radius: 20px;
+    }
+
+    :root.light {
+      --bg: #f2f2f2;
+      --panel: rgba(255,255,255,.48);
+      --panel-solid: #ffffff;
+      --text: #101010;
+      --muted: #606060;
+      --line: rgba(0,0,0,.10);
+      --line-strong: rgba(0,0,0,.18);
+      --glass-highlight: rgba(255,255,255,.66);
+      --shadow: 0 24px 65px rgba(0,0,0,.10);
+    }
+
+    :root.light {
+      --bg: #f5f7fb;
+      --panel: rgba(255,255,255,.82);
+      --panel-solid: #ffffff;
+      --text: #111827;
+      --muted: #5d6677;
+      --line: rgba(17,24,39,.10);
+      --accent: #315ce8;
+      --accent-2: #009f80;
+      --shadow: 0 18px 45px rgba(31,41,55,.10);
+    }
+
+    * { box-sizing: border-box; }
+    ::selection { background: rgba(255,255,255,.18); color: var(--text); }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.16); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.24); }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255,255,255,.055), transparent 27%),
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.035), transparent 25%),
+        radial-gradient(circle at 55% 92%, rgba(255,255,255,.018), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 34px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a, .icon-btn {
+      color: var(--muted);
+      font-size: .93rem;
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); transform: translateY(-1px); }
+
+    .icon-btn {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.045);
+      width: 39px;
+      height: 39px;
+      border-radius: 12px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 78px 0 42px;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel);
+      font-size: .85rem;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.055);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.6rem);
+      line-height: .96;
+      letter-spacing: -.065em;
+      margin: 20px 0 17px;
+      max-width: 780px;
+    }
+
+    .hero h1 span {
+      color: var(--text);
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 710px;
+      font-size: 1.12rem;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 11px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      padding: 11px 16px;
+      border-radius: 13px;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--text) 50%, var(--line)); }
+    .btn.primary {
+      border-color: transparent;
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-weight: 800;
+    }
+
+    .profile-card, .card {
+      background: linear-gradient(145deg, var(--glass-highlight), rgba(255,255,255,.018));
+      border: 1px solid var(--line);
+      border-top-color: var(--line-strong);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px) saturate(115%);
+      -webkit-backdrop-filter: blur(22px) saturate(115%);
+    }
+
+    .profile-card { padding: 24px; }
+
+    .profile-card::before, .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(125deg, rgba(255,255,255,.055), transparent 38%, transparent 70%, rgba(255,255,255,.02));
+      opacity: .55;
+    }
+
+    .profile-card, .card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card > *, .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-badge {
+      background: rgba(255,255,255,.07) !important;
+      border: 1px solid var(--line) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .stat, .contact-item {
+      background: rgba(255,255,255,.028) !important;
+      border-color: var(--line) !important;
+    }
+
+    .profile-badge {
+      width: 92px; height: 92px;
+      border-radius: 26px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--text) 34%, transparent), color-mix(in srgb, var(--text) 26%, transparent));
+      border: 1px solid var(--line);
+      font-size: 2.1rem;
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+    .profile-card h2 { margin: 0 0 4px; font-size: 1.45rem; }
+    .profile-card p { margin: 0 0 18px; color: var(--muted); }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      font-size: .92rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--muted);
+    }
+    .contact-item strong { color: var(--text); }
+    .copy-email { cursor: pointer; }
+
+    section { padding: 24px 0; }
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 17px;
+    }
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      letter-spacing: -.035em;
+    }
+    .section-title p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .card { padding: 22px; }
+    .card h3 { margin: 0 0 7px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .timeline { position: relative; display: grid; gap: 16px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 12px; bottom: 12px;
+      width: 1px;
+      background: var(--line);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 38px;
+    }
+    .dot {
+      position: absolute;
+      left: 6px; top: 9px;
+      width: 13px; height: 13px;
+      background: var(--text);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--text) 14%, transparent);
+    }
+    .meta { color: var(--text); font-size: .86rem; font-weight: 700; margin-bottom: 5px; }
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 800;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: "+"; color: var(--muted); }
+    details[open] summary::after { content: "−"; }
+    details .detail-body { padding-top: 11px; color: var(--muted); }
+
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .pill {
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.018);
+      font-size: .86rem;
+    }
+
+    .project-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .tab.active {
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(255,255,255,.055);
+    }
+    .project-card { min-height: 205px; display: flex; flex-direction: column; justify-content: space-between; }
+    .project-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .project-tag { font-size: .74rem; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .project-icon { font-size: 1.35rem; }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .stat {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+    }
+    .stat strong { display: block; font-size: 1.45rem; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+
+    .cert {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .cert:last-child { border-bottom: 0; padding-bottom: 0; }
+    .cert-mark {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: grid; place-items: center;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--text) 8%, transparent);
+      flex: 0 0 auto;
+    }
+
+
+    .footer {
+      margin-top: 36px;
+      padding: 30px 0 45px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: .88rem;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 9px;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .82;
+      user-select: none;
+    }
+
+    .footer-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 31px;
+      height: 31px;
+      border: 1px solid var(--line-strong);
+      border-radius: 9px;
+      background: rgba(255,255,255,.045);
+      font-size: .62rem;
+      letter-spacing: .05em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    @media print {
+      .topbar, .hero-actions, .project-tabs, .toast { display: none !important; }
+      .footer-brand { color: #111 !important; opacity: .75; }
+      .footer-mark { border-color: #aaa !important; background: #fff !important; }
+      body { background: white; color: black; }
+      .profile-card, .card { box-shadow: none; background: white; color: black; }
+      .container { width: 100%; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">K</span>
+        <span>Konark Barve</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☼</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container">
+
+      <section class="hero reveal">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> BBA AI &amp; Analytics • First Year • Goa, India</div>
+          <h1>Building at the intersection of <span>business, analytics &amp; technology.</span></h1>
+          <p class="lead">
+            I am Konark Barve, a first-year BBA student in AI &amp; Analytics at S.S. Dempo College
+            of Commerce and Economics (Autonomous). I am developing experience across business,
+            communication, event operations, entrepreneurship, finance and technology-enabled problem solving.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View My Work</a>
+            <a class="btn" href="#contact">Let's Connect</a>
+            <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          </div>
+
+          <div class="stats hero-stats">
+            <div class="stat"><strong>01</strong><span>Current Year</span></div>
+            <div class="stat"><strong>06+</strong><span>Active Project Areas</span></div>
+            <div class="stat"><strong>1,400+</strong><span>Event Registrations Handled</span></div>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+          <div class="profile-badge">KB</div>
+          <h2>Konark Barve</h2>
+          <p>BBA AI &amp; Analytics Student • Entrepreneurial Project Builder</p>
+          <div class="contact-list">
+            <div class="contact-item copy-email" id="emailCopy" title="Click to copy">
+              <span>✉</span><strong>Konark.ssdc@gmail.com</strong>
+            </div>
+            <div class="contact-item"><span>📍</span> Goa, India</div>
+            <div class="contact-item"><span>🎓</span> S.S. Dempo College • First Year</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="reveal" id="about">
+        <div class="section-title">
+          <div>
+            <h2>About</h2>
+            <p>A compact view of what I am building and learning.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="project-tag">Profile</div>
+            <h3>Business-minded, technology-curious.</h3>
+            <p>
+              My current focus is combining business education with AI &amp; analytics while building
+              practical exposure through projects, event work and entrepreneurial experiments.
+              I enjoy turning broad ideas into structured systems, MVPs and operating plans.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="project-tag">Direction</div>
+            <h3>Learn → Build → Test → Improve.</h3>
+            <p>
+              My portfolio is intentionally project-oriented: each concept is a way to explore a
+              business problem, understand the operating model and develop the technical or commercial
+              capability required to execute it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="experience">
+        <div class="section-title">
+          <div>
+            <h2>Experience</h2>
+            <p>Leadership, operations, communication and execution.</p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div class="card">
+              <div class="meta">15 Sep 2025 — 28 Jul 2026</div>
+              <details open>
+                <summary>Senior Volunteer • Resource Management — I.I.M.U.N.</summary>
+                <div class="detail-body">
+                  Completed a tenure with India’s International Movement to Unite Nations in the
+                  Resource Management Department. Responsibilities and exposure included event operations,
+                  coordination and public-facing work.
+                  <br><br>
+                  Additional experience included supporting conferences and events across multiple Indian
+                  cities, school orientation sessions and communication with large audiences.
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div class="card">
+              <div class="meta">Event Operations</div>
+              <details>
+                <summary>Event Management &amp; Public Speaking</summary>
+                <div class="detail-body">
+                  Supported and handled event-facing responsibilities, including a Spell Bee event with
+                  approximately <strong>1,400 registrations</strong>. Also delivered orientation sessions
+                  to school audiences and worked in environments requiring coordination, communication and execution.
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="projects">
+        <div class="section-title">
+          <div>
+            <h2>Selected Projects</h2>
+            <p>Explore the portfolio by domain.</p>
+          </div>
+        </div>
+
+        <div class="project-tabs">
+          <button class="tab active" data-filter="all">All</button>
+          <button class="tab" data-filter="technology">Technology</button>
+          <button class="tab" data-filter="entrepreneurship">Entrepreneurship</button>
+          <button class="tab" data-filter="finance">Finance / B2B</button>
+          <button class="tab" data-filter="product">Product</button>
+        </div>
+
+        <div class="grid-3" id="projectGrid">
+          <article class="card project-card reveal" data-category="technology entrepreneurship">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">01 / Technology • Entrepreneurship</span>
+                <span class="project-icon">◈</span>
+              </div>
+              <h3>Project AEGIS / Blackbird</h3>
+              <p>
+                Software-first platform concept focused on monitoring, inspection and operational
+                intelligence, with modular applications such as MEDICOS and solar inspection.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">MVP Design</span>
+              <span class="pill">Systems Thinking</span>
+              <span class="pill">Python</span>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="technology">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">02 / Technology</span>
+                <span class="project-icon">✚</span>
+              </div>
+              <h3>MEDICOS</h3>
+              <p>
+                Concept for reducing clinical documentation workload through voice-based data capture,
+                OCR and image understanding, designed as a licensed software platform.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">Automation</span>
+              <span class="pill">OCR</span>
+              <span class="pill">Voice Interfaces</span>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="technology entrepreneurship">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">03 / Technology • Operations</span>
+                <span class="project-icon">☀</span>
+              </div>
+              <h3>Solar Inspection Module</h3>
+              <p>
+                Software prototype concept for simulating drone missions over solar farms and identifying
+                inspection issues before hardware deployment.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">Simulation</span>
+              <span class="pill">Mission Engine</span>
+              <span class="pill">Computer Vision</span>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="finance entrepreneurship">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">04 / Finance • B2B</span>
+                <span class="project-icon">◎</span>
+              </div>
+              <h3>Industrial Chemical Trading</h3>
+              <p>
+                Asset-light B2B trading concept with structured procurement, industrial sales,
+                trade finance, working-capital and credit-risk processes.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">B2B Sales</span>
+              <span class="pill">Credit Risk</span>
+              <span class="pill">Working Capital</span>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="product entrepreneurship">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">05 / Product • Marketing</span>
+                <span class="project-icon">◉</span>
+              </div>
+              <h3>KONNECT</h3>
+              <p>
+                Student-focused product concept aimed at helping students budget, connect and manage
+                expense payments while creating a structured vendor-revenue model.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">Market Research</span>
+              <span class="pill">Pricing</span>
+              <span class="pill">Product Strategy</span>
+            </div>
+          </article>
+
+          <article class="card project-card reveal" data-category="entrepreneurship">
+            <div>
+              <div class="project-top">
+                <span class="project-tag">06 / Entrepreneurship • Hospitality</span>
+                <span class="project-icon">◆</span>
+              </div>
+              <h3>Hospitality Services</h3>
+              <p>
+                B2B service-business concept for resort and hospitality clients covering external cleaning,
+                pool maintenance, deck restoration, facade care and related contract services.
+              </p>
+            </div>
+            <div class="skill-list">
+              <span class="pill">B2B Prospecting</span>
+              <span class="pill">Pricing</span>
+              <span class="pill">Operations</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="section-title">
+          <div>
+            <h2>What I Bring</h2>
+            <p>Capabilities developed through academics, projects and real-world exposure.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Communication</h3>
+            <p>Public speaking, school orientations, event coordination and professional communication.</p>
+          </div>
+          <div class="card">
+            <h3>Execution</h3>
+            <p>Comfortable taking an ambiguous task, structuring it and pushing toward a concrete deliverable.</p>
+          </div>
+          <div class="card">
+            <h3>Business Thinking</h3>
+            <p>Interest in B2B models, finance, pricing, operations, market research and entrepreneurship.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="education">
+        <div class="section-title">
+          <div>
+            <h2>Education</h2>
+            <p>Current academic foundation.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="meta">2026 — Present • First Year</div>
+            <h3>Bachelor of Business Administration (BBA) — AI &amp; Analytics</h3>
+            <p>S.S. Dempo College of Commerce and Economics (Autonomous), Goa</p>
+            <div class="stats">
+              <div class="stat"><strong>01</strong><span>Year</span></div>
+              <div class="stat"><strong>AI</strong><span>Analytics Focus</span></div>
+              <div class="stat"><strong>BBA</strong><span>Undergraduate</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="meta">Completed</div>
+            <h3>Higher Secondary Education</h3>
+            <p>12th standard completed; currently progressing through undergraduate business education.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="skills">
+        <div class="section-title">
+          <div>
+            <h2>Skills &amp; Current Learning</h2>
+            <p>A living skills map rather than a static list.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Core Skills</h3>
+            <div class="skill-list" style="margin-top:14px">
+              <span class="pill">Business Communication</span>
+              <span class="pill">Public Speaking</span>
+              <span class="pill">Event Coordination</span>
+              <span class="pill">Project Planning</span>
+              <span class="pill">Entrepreneurship</span>
+              <span class="pill">B2B Sales</span>
+              <span class="pill">Market Research</span>
+              <span class="pill">Product Strategy</span>
+              <span class="pill">Operations Thinking</span>
+              <span class="pill">Financial Analysis</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Current Learning</h3>
+            <div class="skill-list" style="margin-top:14px">
+              <span class="pill">AI &amp; Analytics</span>
+              <span class="pill">Python Prototyping</span>
+              <span class="pill">Financial Modelling</span>
+              <span class="pill">CFA Level I Preparation</span>
+              <span class="pill">French — A1</span>
+              <span class="pill">German — A1</span>
+              <span class="pill">Business AI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal" id="contact">
+        <div class="section-title">
+          <div>
+            <h2>Let's Connect</h2>
+            <p>Internships, projects, business opportunities and collaborations.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="grid-2">
+            <div>
+              <div class="project-tag">Open to opportunities</div>
+              <h3>Konark Barve</h3>
+              <p>BBA AI &amp; Analytics • First Year • Goa, India</p>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" href="mailto:Konark.ssdc@gmail.com">Email Me</a>
+              <button class="btn copy-email-2">Copy Email</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-brand" aria-label="Shree Sales Productions watermark">
+          <span class="footer-mark">SSP</span>
+          <span>Shree Sales Productions</span>
+        </div>
+        <div class="footer-copy">© <span id="year"></span> Konark Barve • Portfolio</div>
+      </footer>
+    </div>
+  </main>
+
+  <div class="toast" id="toast">Copied to clipboard.</div>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('kb-theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    themeToggle.textContent = root.classList.contains('light') ? '☾' : '☼';
+
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('light');
+      const light = root.classList.contains('light');
+      localStorage.setItem('kb-theme', light ? 'light' : 'dark');
+      themeToggle.textContent = light ? '☾' : '☼';
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    async function copyEmail() {
+      const email = 'Konark.ssdc@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast('Email copied.');
+      } catch {
+        showToast(email);
+      }
+    }
+
+    document.getElementById('emailCopy').addEventListener('click', copyEmail);
+    document.querySelector('.copy-email-2').addEventListener('click', copyEmail);
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.project-card').forEach(card => {
+          const show = filter === 'all' || card.dataset.category.split(' ').includes(filter);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
